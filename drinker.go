@@ -61,11 +61,11 @@ func yamSheng(d *drinker) stateFn {
 // buy bottle with money, cap, empty bottle.
 func buy(d *drinker) stateFn {
 	switch {
-	case d.money%2 == 0 && d.money != 0:
+	case d.money >= 2:
 		return buyWithMoney(d)
-	case d.cap >= 4 && d.cap != 0:
+	case d.cap >= 4:
 		return buyWithCap(d)
-	case (d.empty >= 2) && d.empty != 0:
+	case d.empty >= 2:
 		return buyWithEmptyBottle(d)
 	default:
 		return nil
